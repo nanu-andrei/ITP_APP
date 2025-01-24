@@ -1,0 +1,1958 @@
+2025-01-23T00:23:57.731+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/employees/login", parameters={}
+2025-01-23T00:23:57.737+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.server.controllers.EmployeeController#login(Map)
+2025-01-23T00:23:57.739+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{privateKey=7206e8cf9b1b2eeb435b0507b6e905288ce5fc6b4bb2e8a37c4eb38d04f5077a, username=Vale 1}]
+2025-01-23T00:23:57.752+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        ec1_0.firm_id,
+        ec1_0.role,
+        ec1_0.username 
+    from
+        employee_credentials ec1_0 
+    where
+        ec1_0.username=?
+2025-01-23T00:23:57.754+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        a1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        a1_0.role,
+        a1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        f1_0.firm_name 
+    from
+        firm f1_0 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        firm f2_0 
+            on f2_0.id=a1_0.firm_id 
+    left join
+        wallet w1_0 
+            on a1_0.id=w1_0.employee_credentials_id 
+    where
+        f1_0.id=?
+2025-01-23T00:23:57.757+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:23:57.841+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.id=?
+2025-01-23T00:23:57.843+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        f1_0.id,
+        a1_0.id,
+        a1_0.firm_id,
+        a1_0.role,
+        a1_0.username,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.id=?
+2025-01-23T00:23:57.848+02:00  INFO 8868 --- [server] [http-nio-8080-exec-10] c.server.controllers.EmployeeController  : User Vale 1 successfully logged in
+2025-01-23T00:23:57.848+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-23T00:23:57.849+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.server.DTO.EmployeeCredentialsDTO@21a6912c]
+2025-01-23T00:23:57.849+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        ec1_0.firm_id,
+        ec1_0.id,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.firm_id=?
+2025-01-23T00:23:57.853+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.firm_id,
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        i1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status,
+        ud1_0.id,
+        ud1_0.cnp,
+        c1_0.id,
+        c1_0.password,
+        c1_0.username,
+        ud1_0.date_of_birth,
+        ud1_0.first_name,
+        ud1_0.gender,
+        ud1_0.last_name 
+    from
+        user_request r1_0 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f2_0 
+            on f2_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    left join
+        user_info ud1_0 
+            on ud1_0.id=r1_0.user_data_id 
+    left join
+        user_credentials c1_0 
+            on c1_0.id=ud1_0.credential_id 
+    where
+        r1_0.firm_id=?
+2025-01-23T00:23:57.857+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-01-23T00:23:59.576+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/employees/inspector/viewAssignedContracts?username=Vale+1", parameters={masked}
+2025-01-23T00:23:59.576+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.server.controllers.InspectorController#viewAssignedContracts(String)
+2025-01-23T00:23:59.580+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        ec1_0.firm_id,
+        ec1_0.role,
+        ec1_0.username 
+    from
+        employee_credentials ec1_0 
+    where
+        ec1_0.username=?
+2025-01-23T00:23:59.582+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        a1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        a1_0.role,
+        a1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        f1_0.firm_name 
+    from
+        firm f1_0 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        firm f2_0 
+            on f2_0.id=a1_0.firm_id 
+    left join
+        wallet w1_0 
+            on a1_0.id=w1_0.employee_credentials_id 
+    where
+        f1_0.id=?
+2025-01-23T00:23:59.585+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:23:59.588+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.firm_id,
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        i1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status,
+        ud1_0.id,
+        ud1_0.cnp,
+        c1_0.id,
+        c1_0.password,
+        c1_0.username,
+        ud1_0.date_of_birth,
+        ud1_0.first_name,
+        ud1_0.gender,
+        ud1_0.last_name 
+    from
+        user_request r1_0 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f2_0 
+            on f2_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    left join
+        user_info ud1_0 
+            on ud1_0.id=r1_0.user_data_id 
+    left join
+        user_credentials c1_0 
+            on c1_0.id=ud1_0.credential_id 
+    where
+        r1_0.firm_id=?
+2025-01-23T00:23:59.603+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.NullPointerException: Cannot invoke "com.server.Entity.EmployeeCredentials.getUsername()" because the return value of "com.server.Entity.Request.getInspector()" is null
+2025-01-23T00:23:59.603+02:00 ERROR 8868 --- [server] [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "com.server.Entity.EmployeeCredentials.getUsername()" because the return value of "com.server.Entity.Request.getInspector()" is null] with root cause
+
+java.lang.NullPointerException: Cannot invoke "com.server.Entity.EmployeeCredentials.getUsername()" because the return value of "com.server.Entity.Request.getInspector()" is null
+	at com.server.services.InspectorServiceImplementation.viewAssignedContracts(InspectorServiceImplementation.java:37) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713) ~[spring-aop-6.1.5.jar:6.1.5]
+	at com.server.services.InspectorServiceImplementation$$SpringCGLIB$$0.viewAssignedContracts(<generated>) ~[classes/:na]
+	at com.server.controllers.InspectorController.viewAssignedContracts(InspectorController.java:25) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2025-01-23T00:23:59.607+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error?username=Vale+1", parameters={masked}
+2025-01-23T00:23:59.607+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-01-23T00:23:59.608+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-23T00:23:59.609+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Thu Jan 23 00:23:59 EET 2025, status=500, error=Internal Server Error, path=/employees/in (truncated)...]
+2025-01-23T00:23:59.610+02:00 DEBUG 8868 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2025-01-23T00:24:33.815+02:00  INFO 8868 --- [server] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23T00:24:33.819+02:00  INFO 8868 --- [server] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-23T00:24:33.826+02:00  INFO 8868 --- [server] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-23T00:24:36.909+02:00  INFO 20888 --- [server] [main] c.server.controllers.ServerApplication   : Starting ServerApplication using Java 17 with PID 20888 (C:\Users\Biggus Dickus\IdeaProjects\server\server\target\classes started by Biggus Dickus in C:\Users\Biggus Dickus\IdeaProjects\server)
+2025-01-23T00:24:36.911+02:00  INFO 20888 --- [server] [main] c.server.controllers.ServerApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-01-23T00:24:37.705+02:00  INFO 20888 --- [server] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23T00:24:37.777+02:00  INFO 20888 --- [server] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 6 JPA repository interfaces.
+2025-01-23T00:24:38.931+02:00  INFO 20888 --- [server] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-23T00:24:38.948+02:00  INFO 20888 --- [server] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-23T00:24:38.949+02:00  INFO 20888 --- [server] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-01-23T00:24:39.053+02:00  INFO 20888 --- [server] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-23T00:24:39.054+02:00  INFO 20888 --- [server] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2073 ms
+2025-01-23T00:24:39.270+02:00  INFO 20888 --- [server] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23T00:24:39.350+02:00  INFO 20888 --- [server] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-01-23T00:24:39.396+02:00  INFO 20888 --- [server] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-23T00:24:39.665+02:00  INFO 20888 --- [server] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23T00:24:39.701+02:00  INFO 20888 --- [server] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-23T00:24:40.032+02:00  INFO 20888 --- [server] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@55638165
+2025-01-23T00:24:40.034+02:00  INFO 20888 --- [server] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-23T00:24:40.081+02:00  WARN 20888 --- [server] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-23T00:24:40.083+02:00  WARN 20888 --- [server] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-23T00:24:41.710+02:00  INFO 20888 --- [server] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23T00:24:41.854+02:00  INFO 20888 --- [server] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23T00:24:42.167+02:00 DEBUG 20888 --- [server] [main] o.h.stat.internal.StatisticsInitiator    : Statistics initialized [enabled=false]
+2025-01-23T00:24:42.628+02:00  INFO 20888 --- [server] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-01-23T00:24:43.828+02:00  WARN 20888 --- [server] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-23T00:24:43.995+02:00  WARN 20888 --- [server] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e7372564-ed6a-40e6-921c-70ce4d4db38f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-01-23T00:24:44.320+02:00 DEBUG 20888 --- [server] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 27 mappings in 'requestMappingHandlerMapping'
+2025-01-23T00:24:44.472+02:00 DEBUG 20888 --- [server] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-01-23T00:24:44.592+02:00  INFO 20888 --- [server] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@287d9e0c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cc1f8d3, org.springframework.security.web.context.SecurityContextHolderFilter@3da068e8, org.springframework.security.web.header.HeaderWriterFilter@2eaaef66, org.springframework.web.filter.CorsFilter@2a9eb44d, org.springframework.security.web.authentication.logout.LogoutFilter@6b4d0be2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72bd8702, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2620d0dc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46135aba, org.springframework.security.web.access.ExceptionTranslationFilter@34ec33f4, org.springframework.security.web.access.intercept.AuthorizationFilter@7bc3e36b]
+2025-01-23T00:24:44.713+02:00 DEBUG 20888 --- [server] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-01-23T00:24:44.762+02:00 DEBUG 20888 --- [server] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-01-23T00:24:44.801+02:00 DEBUG 20888 --- [server] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 0 ResponseBodyAdvice
+2025-01-23T00:24:44.990+02:00  INFO 20888 --- [server] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-01-23T00:24:45.001+02:00  INFO 20888 --- [server] [main] c.server.controllers.ServerApplication   : Started ServerApplication in 8.618 seconds (process running for 9.148)
+2025-01-23T00:25:21.618+02:00  INFO 20888 --- [server] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-23T00:25:21.618+02:00  INFO 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-23T00:25:21.618+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-01-23T00:25:21.618+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-01-23T00:25:21.618+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-01-23T00:25:21.620+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@72ce2982
+2025-01-23T00:25:21.620+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1babd50e
+2025-01-23T00:25:21.621+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-01-23T00:25:21.621+02:00  INFO 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-01-23T00:25:21.647+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/employees/login", parameters={}
+2025-01-23T00:25:21.649+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.server.controllers.EmployeeController#login(Map)
+2025-01-23T00:25:21.683+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{privateKey=ff7fcb9aa8e5a8e590dc48492c95876d110c4ecefe700b6b2eea5aca3ad67cd4 , username=Andrei 1}]
+2025-01-23T00:25:21.773+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        ec1_0.firm_id,
+        ec1_0.role,
+        ec1_0.username 
+    from
+        employee_credentials ec1_0 
+    where
+        ec1_0.username=?
+2025-01-23T00:25:21.785+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        a1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        a1_0.role,
+        a1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        f1_0.firm_name 
+    from
+        firm f1_0 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        firm f2_0 
+            on f2_0.id=a1_0.firm_id 
+    left join
+        wallet w1_0 
+            on a1_0.id=w1_0.employee_credentials_id 
+    where
+        f1_0.id=?
+2025-01-23T00:25:21.804+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:25:21.903+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.IllegalArgumentException: Invalid Login Credentials
+2025-01-23T00:25:21.909+02:00 ERROR 20888 --- [server] [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Invalid Login Credentials] with root cause
+
+java.lang.IllegalArgumentException: Invalid Login Credentials: User mismatch
+	at com.server.services.EmployeeServiceImplementation.login(EmployeeServiceImplementation.java:168) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.5.jar:6.1.5]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.5.jar:6.1.5]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.5.jar:6.1.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717) ~[spring-aop-6.1.5.jar:6.1.5]
+	at com.server.services.EmployeeServiceImplementation$$SpringCGLIB$$0.login(<generated>) ~[classes/:na]
+	at com.server.controllers.EmployeeController.login(EmployeeController.java:37) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2025-01-23T00:25:21.928+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2025-01-23T00:25:21.929+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-01-23T00:25:21.946+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-23T00:25:21.948+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Thu Jan 23 00:25:21 EET 2025, status=500, error=Internal Server Error, path=/employees/lo (truncated)...]
+2025-01-23T00:25:21.990+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2025-01-23T00:26:04.285+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/employees/login", parameters={}
+2025-01-23T00:26:04.286+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.server.controllers.EmployeeController#login(Map)
+2025-01-23T00:26:04.287+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{privateKey=ff7fcb9aa8e5a8e590dc48492c95876d110c4ecefe700b6b2eea5aca3ad67cd4, username=Andrei 1}]
+2025-01-23T00:26:04.290+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        ec1_0.firm_id,
+        ec1_0.role,
+        ec1_0.username 
+    from
+        employee_credentials ec1_0 
+    where
+        ec1_0.username=?
+2025-01-23T00:26:04.291+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        a1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        a1_0.role,
+        a1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        f1_0.firm_name 
+    from
+        firm f1_0 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        firm f2_0 
+            on f2_0.id=a1_0.firm_id 
+    left join
+        wallet w1_0 
+            on a1_0.id=w1_0.employee_credentials_id 
+    where
+        f1_0.id=?
+2025-01-23T00:26:04.293+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:26:04.343+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.id=?
+2025-01-23T00:26:04.346+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        f1_0.id,
+        a1_0.id,
+        a1_0.firm_id,
+        a1_0.role,
+        a1_0.username,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.id=?
+2025-01-23T00:26:04.349+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:26:04.362+02:00  INFO 20888 --- [server] [http-nio-8080-exec-2] c.server.controllers.EmployeeController  : User Andrei 1 successfully logged in
+2025-01-23T00:26:04.378+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-23T00:26:04.379+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.server.DTO.EmployeeCredentialsDTO@28785c6f]
+2025-01-23T00:26:04.389+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ec1_0.firm_id,
+        ec1_0.id,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.firm_id=?
+2025-01-23T00:26:04.400+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        r1_0.firm_id,
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        i1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status,
+        ud1_0.id,
+        ud1_0.cnp,
+        c1_0.id,
+        c1_0.password,
+        c1_0.username,
+        ud1_0.date_of_birth,
+        ud1_0.first_name,
+        ud1_0.gender,
+        ud1_0.last_name 
+    from
+        user_request r1_0 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f2_0 
+            on f2_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    left join
+        user_info ud1_0 
+            on ud1_0.id=r1_0.user_data_id 
+    left join
+        user_credentials c1_0 
+            on c1_0.id=ud1_0.credential_id 
+    where
+        r1_0.firm_id=?
+2025-01-23T00:26:04.407+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-01-23T00:27:20.239+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/employees/admin/assignContract?requestId=9", parameters={masked}
+2025-01-23T00:27:20.240+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.server.controllers.AdminController#assignContract(String, ObjectNode)
+2025-01-23T00:27:20.255+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{"admin":"Andrei 1","inspector":"Vale 1"}]
+2025-01-23T00:27:20.258+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        ec1_0.firm_id,
+        ec1_0.role,
+        ec1_0.username 
+    from
+        employee_credentials ec1_0 
+    where
+        ec1_0.username=?
+2025-01-23T00:27:20.259+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        a1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        a1_0.role,
+        a1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        f1_0.firm_name 
+    from
+        firm f1_0 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        firm f2_0 
+            on f2_0.id=a1_0.firm_id 
+    left join
+        wallet w1_0 
+            on a1_0.id=w1_0.employee_credentials_id 
+    where
+        f1_0.id=?
+2025-01-23T00:27:20.261+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:27:20.263+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.id=?
+2025-01-23T00:27:20.265+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        f1_0.id,
+        a1_0.id,
+        a1_0.firm_id,
+        a1_0.role,
+        a1_0.username,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.id=?
+2025-01-23T00:27:20.267+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:27:20.270+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        ec1_0.firm_id,
+        ec1_0.role,
+        ec1_0.username 
+    from
+        employee_credentials ec1_0 
+    where
+        ec1_0.username=?
+2025-01-23T00:27:20.272+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:27:20.282+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        f1_0.id,
+        a1_0.id,
+        a1_0.firm_id,
+        a1_0.role,
+        a1_0.username,
+        f1_0.firm_name,
+        i1_0.id,
+        f3_0.id,
+        f3_0.primary_admin_id,
+        f3_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status,
+        ud1_0.id,
+        ud1_0.cnp,
+        c1_0.id,
+        c1_0.password,
+        c1_0.username,
+        ud1_0.date_of_birth,
+        ud1_0.first_name,
+        ud1_0.gender,
+        ud1_0.last_name 
+    from
+        user_request r1_0 
+    left join
+        firm f1_0 
+            on f1_0.id=r1_0.firm_id 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f3_0 
+            on f3_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    left join
+        user_info ud1_0 
+            on ud1_0.id=r1_0.user_data_id 
+    left join
+        user_credentials c1_0 
+            on c1_0.id=ud1_0.credential_id 
+    where
+        r1_0.id=?
+2025-01-23T00:27:20.300+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    update
+        user_request 
+    set
+        color=?,
+        fuel_type=?,
+        manufacturer=?,
+        model=?,
+        plate_number=?,
+        production_year=?,
+        vin=?,
+        firm_id=?,
+        inspector_id=?,
+        status=?,
+        user_data_id=? 
+    where
+        id=?
+2025-01-23T00:27:20.306+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        r1_0.firm_id,
+        r1_0.inspector_id,
+        r1_0.status,
+        r1_0.user_data_id 
+    from
+        user_request r1_0 
+    where
+        r1_0.vin=?
+2025-01-23T00:27:20.326+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-23T00:27:20.326+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Nothing to write: null body
+2025-01-23T00:27:20.327+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-01-23T00:28:14.304+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/employees/login", parameters={}
+2025-01-23T00:28:14.305+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.server.controllers.EmployeeController#login(Map)
+2025-01-23T00:28:14.306+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{privateKey=7206e8cf9b1b2eeb435b0507b6e905288ce5fc6b4bb2e8a37c4eb38d04f5077a, username=Vale 1}]
+2025-01-23T00:28:14.308+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        ec1_0.firm_id,
+        ec1_0.role,
+        ec1_0.username 
+    from
+        employee_credentials ec1_0 
+    where
+        ec1_0.username=?
+2025-01-23T00:28:14.310+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        a1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        a1_0.role,
+        a1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        f1_0.firm_name 
+    from
+        firm f1_0 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        firm f2_0 
+            on f2_0.id=a1_0.firm_id 
+    left join
+        wallet w1_0 
+            on a1_0.id=w1_0.employee_credentials_id 
+    where
+        f1_0.id=?
+2025-01-23T00:28:14.312+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:28:14.333+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.id=?
+2025-01-23T00:28:14.335+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        f1_0.id,
+        a1_0.id,
+        a1_0.firm_id,
+        a1_0.role,
+        a1_0.username,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.id=?
+2025-01-23T00:28:14.339+02:00  INFO 20888 --- [server] [http-nio-8080-exec-6] c.server.controllers.EmployeeController  : User Vale 1 successfully logged in
+2025-01-23T00:28:14.339+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-23T00:28:14.339+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.server.DTO.EmployeeCredentialsDTO@50dd392e]
+2025-01-23T00:28:14.340+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        ec1_0.firm_id,
+        ec1_0.id,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.firm_id=?
+2025-01-23T00:28:14.342+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        r1_0.firm_id,
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        i1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status,
+        ud1_0.id,
+        ud1_0.cnp,
+        c1_0.id,
+        c1_0.password,
+        c1_0.username,
+        ud1_0.date_of_birth,
+        ud1_0.first_name,
+        ud1_0.gender,
+        ud1_0.last_name 
+    from
+        user_request r1_0 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f2_0 
+            on f2_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    left join
+        user_info ud1_0 
+            on ud1_0.id=r1_0.user_data_id 
+    left join
+        user_credentials c1_0 
+            on c1_0.id=ud1_0.credential_id 
+    where
+        r1_0.firm_id=?
+2025-01-23T00:28:14.346+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-01-23T00:28:15.902+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/employees/inspector/viewAssignedContracts?username=Vale+1", parameters={masked}
+2025-01-23T00:28:15.903+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.server.controllers.InspectorController#viewAssignedContracts(String)
+2025-01-23T00:28:15.905+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        ec1_0.firm_id,
+        ec1_0.role,
+        ec1_0.username 
+    from
+        employee_credentials ec1_0 
+    where
+        ec1_0.username=?
+2025-01-23T00:28:15.907+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        a1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        a1_0.role,
+        a1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        f1_0.firm_name 
+    from
+        firm f1_0 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        firm f2_0 
+            on f2_0.id=a1_0.firm_id 
+    left join
+        wallet w1_0 
+            on a1_0.id=w1_0.employee_credentials_id 
+    where
+        f1_0.id=?
+2025-01-23T00:28:15.909+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:28:15.912+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        r1_0.firm_id,
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        i1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status,
+        ud1_0.id,
+        ud1_0.cnp,
+        c1_0.id,
+        c1_0.password,
+        c1_0.username,
+        ud1_0.date_of_birth,
+        ud1_0.first_name,
+        ud1_0.gender,
+        ud1_0.last_name 
+    from
+        user_request r1_0 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f2_0 
+            on f2_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    left join
+        user_info ud1_0 
+            on ud1_0.id=r1_0.user_data_id 
+    left join
+        user_credentials c1_0 
+            on c1_0.id=ud1_0.credential_id 
+    where
+        r1_0.firm_id=?
+2025-01-23T00:28:15.916+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-23T00:28:15.916+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.server.DTO.RequestDTO@669b0771]]
+2025-01-23T00:28:15.920+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        r1_0.user_data_id,
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        f1_0.id,
+        a1_0.id,
+        a1_0.firm_id,
+        a1_0.role,
+        a1_0.username,
+        f1_0.firm_name,
+        i1_0.id,
+        f3_0.id,
+        f3_0.primary_admin_id,
+        f3_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status 
+    from
+        user_request r1_0 
+    left join
+        firm f1_0 
+            on f1_0.id=r1_0.firm_id 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f3_0 
+            on f3_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    where
+        r1_0.user_data_id=?
+2025-01-23T00:28:15.922+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        ec1_0.firm_id,
+        ec1_0.id,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.firm_id=?
+2025-01-23T00:28:15.926+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-01-23T00:42:51.407+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/employees/login", parameters={}
+2025-01-23T00:42:51.408+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.server.controllers.EmployeeController#login(Map)
+2025-01-23T00:42:51.410+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{privateKey=7206e8cf9b1b2eeb435b0507b6e905288ce5fc6b4bb2e8a37c4eb38d04f5077a, username=Vale 1}]
+2025-01-23T00:42:51.415+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        ec1_0.firm_id,
+        ec1_0.role,
+        ec1_0.username 
+    from
+        employee_credentials ec1_0 
+    where
+        ec1_0.username=?
+2025-01-23T00:42:51.417+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        a1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        a1_0.role,
+        a1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        f1_0.firm_name 
+    from
+        firm f1_0 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        firm f2_0 
+            on f2_0.id=a1_0.firm_id 
+    left join
+        wallet w1_0 
+            on a1_0.id=w1_0.employee_credentials_id 
+    where
+        f1_0.id=?
+2025-01-23T00:42:51.420+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:42:51.441+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.id=?
+2025-01-23T00:42:51.443+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        f1_0.id,
+        a1_0.id,
+        a1_0.firm_id,
+        a1_0.role,
+        a1_0.username,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.id=?
+2025-01-23T00:42:51.446+02:00  INFO 20888 --- [server] [http-nio-8080-exec-10] c.server.controllers.EmployeeController  : User Vale 1 successfully logged in
+2025-01-23T00:42:51.446+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-23T00:42:51.446+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.server.DTO.EmployeeCredentialsDTO@56f89033]
+2025-01-23T00:42:51.447+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        ec1_0.firm_id,
+        ec1_0.id,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.firm_id=?
+2025-01-23T00:42:51.450+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.firm_id,
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        i1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status,
+        ud1_0.id,
+        ud1_0.cnp,
+        c1_0.id,
+        c1_0.password,
+        c1_0.username,
+        ud1_0.date_of_birth,
+        ud1_0.first_name,
+        ud1_0.gender,
+        ud1_0.last_name 
+    from
+        user_request r1_0 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f2_0 
+            on f2_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    left join
+        user_info ud1_0 
+            on ud1_0.id=r1_0.user_data_id 
+    left join
+        user_credentials c1_0 
+            on c1_0.id=ud1_0.credential_id 
+    where
+        r1_0.firm_id=?
+2025-01-23T00:42:51.454+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-01-23T00:42:54.371+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/employees/inspector/viewAssignedContracts?username=Vale+1", parameters={masked}
+2025-01-23T00:42:54.371+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.server.controllers.InspectorController#viewAssignedContracts(String)
+2025-01-23T00:42:54.373+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        ec1_0.firm_id,
+        ec1_0.role,
+        ec1_0.username 
+    from
+        employee_credentials ec1_0 
+    where
+        ec1_0.username=?
+2025-01-23T00:42:54.375+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        a1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        a1_0.role,
+        a1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        f1_0.firm_name 
+    from
+        firm f1_0 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        firm f2_0 
+            on f2_0.id=a1_0.firm_id 
+    left join
+        wallet w1_0 
+            on a1_0.id=w1_0.employee_credentials_id 
+    where
+        f1_0.id=?
+2025-01-23T00:42:54.377+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:42:54.379+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.firm_id,
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        i1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status,
+        ud1_0.id,
+        ud1_0.cnp,
+        c1_0.id,
+        c1_0.password,
+        c1_0.username,
+        ud1_0.date_of_birth,
+        ud1_0.first_name,
+        ud1_0.gender,
+        ud1_0.last_name 
+    from
+        user_request r1_0 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f2_0 
+            on f2_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    left join
+        user_info ud1_0 
+            on ud1_0.id=r1_0.user_data_id 
+    left join
+        user_credentials c1_0 
+            on c1_0.id=ud1_0.credential_id 
+    where
+        r1_0.firm_id=?
+2025-01-23T00:42:54.383+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-23T00:42:54.383+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.server.DTO.RequestDTO@3e552292]]
+2025-01-23T00:42:54.384+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.user_data_id,
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        f1_0.id,
+        a1_0.id,
+        a1_0.firm_id,
+        a1_0.role,
+        a1_0.username,
+        f1_0.firm_name,
+        i1_0.id,
+        f3_0.id,
+        f3_0.primary_admin_id,
+        f3_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status 
+    from
+        user_request r1_0 
+    left join
+        firm f1_0 
+            on f1_0.id=r1_0.firm_id 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f3_0 
+            on f3_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    where
+        r1_0.user_data_id=?
+2025-01-23T00:42:54.386+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        ec1_0.firm_id,
+        ec1_0.id,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.firm_id=?
+2025-01-23T00:42:54.388+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-01-23T00:43:00.537+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/employees/inspector/viewAssignedContracts?username=Vale+1", parameters={masked}
+2025-01-23T00:43:00.538+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.server.controllers.InspectorController#viewAssignedContracts(String)
+2025-01-23T00:43:00.540+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ec1_0.id,
+        ec1_0.firm_id,
+        ec1_0.role,
+        ec1_0.username 
+    from
+        employee_credentials ec1_0 
+    where
+        ec1_0.username=?
+2025-01-23T00:43:00.542+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        f1_0.id,
+        a1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        a1_0.role,
+        a1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        f1_0.firm_name 
+    from
+        firm f1_0 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        firm f2_0 
+            on f2_0.id=a1_0.firm_id 
+    left join
+        wallet w1_0 
+            on a1_0.id=w1_0.employee_credentials_id 
+    where
+        f1_0.id=?
+2025-01-23T00:43:00.544+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        w1_0.id,
+        w1_0.address,
+        ec1_0.id,
+        f1_0.id,
+        f1_0.primary_admin_id,
+        f1_0.firm_name,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.encrypted_private_key 
+    from
+        wallet w1_0 
+    left join
+        employee_credentials ec1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    left join
+        firm f1_0 
+            on f1_0.id=ec1_0.firm_id 
+    where
+        w1_0.employee_credentials_id=?
+2025-01-23T00:43:00.548+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        r1_0.firm_id,
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        i1_0.id,
+        f2_0.id,
+        f2_0.primary_admin_id,
+        f2_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status,
+        ud1_0.id,
+        ud1_0.cnp,
+        c1_0.id,
+        c1_0.password,
+        c1_0.username,
+        ud1_0.date_of_birth,
+        ud1_0.first_name,
+        ud1_0.gender,
+        ud1_0.last_name 
+    from
+        user_request r1_0 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f2_0 
+            on f2_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    left join
+        user_info ud1_0 
+            on ud1_0.id=r1_0.user_data_id 
+    left join
+        user_credentials c1_0 
+            on c1_0.id=ud1_0.credential_id 
+    where
+        r1_0.firm_id=?
+2025-01-23T00:43:00.551+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-23T00:43:00.552+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.server.DTO.RequestDTO@11c9beb4]]
+2025-01-23T00:43:00.552+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        r1_0.user_data_id,
+        r1_0.id,
+        r1_0.color,
+        r1_0.fuel_type,
+        r1_0.manufacturer,
+        r1_0.model,
+        r1_0.plate_number,
+        r1_0.production_year,
+        r1_0.vin,
+        f1_0.id,
+        a1_0.id,
+        a1_0.firm_id,
+        a1_0.role,
+        a1_0.username,
+        f1_0.firm_name,
+        i1_0.id,
+        f3_0.id,
+        f3_0.primary_admin_id,
+        f3_0.firm_name,
+        i1_0.role,
+        i1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key,
+        r1_0.status 
+    from
+        user_request r1_0 
+    left join
+        firm f1_0 
+            on f1_0.id=r1_0.firm_id 
+    left join
+        employee_credentials a1_0 
+            on a1_0.id=f1_0.primary_admin_id 
+    left join
+        employee_credentials i1_0 
+            on i1_0.id=r1_0.inspector_id 
+    left join
+        firm f3_0 
+            on f3_0.id=i1_0.firm_id 
+    left join
+        wallet w1_0 
+            on i1_0.id=w1_0.employee_credentials_id 
+    where
+        r1_0.user_data_id=?
+2025-01-23T00:43:00.555+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        ec1_0.firm_id,
+        ec1_0.id,
+        ec1_0.role,
+        ec1_0.username,
+        w1_0.id,
+        w1_0.address,
+        w1_0.encrypted_private_key 
+    from
+        employee_credentials ec1_0 
+    left join
+        wallet w1_0 
+            on ec1_0.id=w1_0.employee_credentials_id 
+    where
+        ec1_0.firm_id=?
+2025-01-23T00:43:00.558+02:00 DEBUG 20888 --- [server] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-01-23T22:45:48.414+02:00  WARN 20888 --- [server] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20h58m6s918ms901µs900ns).

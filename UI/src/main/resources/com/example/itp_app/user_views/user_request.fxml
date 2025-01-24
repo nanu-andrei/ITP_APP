@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.itp_app.User.RequestController">
+   <VBox spacing="10" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
+      <Label prefHeight="18.0" prefWidth="391.0" text="Request Formular">
+         <font>
+            <Font name="Cambria" size="18.0" />
+         </font>
+      </Label>
+      <!-- GridPane for TextFields -->
+      <GridPane hgap="10" vgap="10">
+         <Label text="Name" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+         <TextField fx:id="name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+         <Label text="VIN" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+         <TextField fx:id="VIN" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+         <Label text="Model" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+         <TextField fx:id="model" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+         <Label text="Producer" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+         <TextField fx:id="producer" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+         <Label text="Production Year" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+         <TextField fx:id="productionYear" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+         <Label text="Color" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         <TextField fx:id="color" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+         <Label text="Fuel Type" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         <TextField fx:id="fuelType" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+         <Label text="Plate nr." wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         <TextField fx:id="plateNr" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+         <columnConstraints>
+            <ColumnConstraints maxWidth="64.19999618530274" minWidth="49.80003662109375" prefWidth="63.40000839233399" />
+            <ColumnConstraints maxWidth="128.99996337890624" minWidth="114.60000381469726" prefWidth="115.39999160766601" />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+
+      <!-- Additional TextField below the grid, centered -->
+      <HBox alignment="CENTER" spacing="10">
+         <Label text="Designated Firm" wrapText="true" />
+         <TextField fx:id="designatedFirm" prefWidth="200" />
+      </HBox>
+      <HBox alignment="CENTER_LEFT" spacing="10" VBox.vgrow="ALWAYS">
+         <Label fx:id="error" prefHeight="18.0" prefWidth="302.0" />
+         <Region HBox.hgrow="ALWAYS" /> <!-- Spacer to push the submit button to the right -->
+         <Button fx:id="submitButton" onAction="#setSubmitButton" text="Submit" />
+      </HBox>
+   </VBox>
+</AnchorPane>

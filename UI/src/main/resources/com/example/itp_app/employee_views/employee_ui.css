@@ -1,0 +1,46 @@
+/* General styling for the main AnchorPane */
+.root {
+    -fx-background-color: #f5f5f5; /* Light grey background for the page */
+    -fx-padding: 0;
+    -fx-alignment: center;
+}
+
+/* Styling for the AnchorPane panel */
+#panel {
+    -fx-background-color: linear-gradient(to right, #4A0000 0%, #B71C1C 100%);
+    -fx-background-radius: 2; /* Rounded corners */
+    -fx-padding: 10; /* Padding to space out the content */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 5); /* Adding shadow for depth */
+}
+/* Styling for buttons within the panel */
+.jfx-button {
+    -fx-background-color: transparent; /* Blend with the background */
+    -fx-text-fill: #FFFFFF; /* White text color */
+    -fx-font-size: 16px;
+    -fx-background-radius: 0;
+    -fx-padding: 10; /* Padding inside the button */
+}
+
+/* Hover effect for buttons */
+
+.jfx-button:hover {
+    -fx-background-color: #FFFFFF; /* Lighter background on hover */
+    -fx-text-fill: #4A0000; /* Dark text when hovered */
+}
+
+/* Pressed effect for buttons */
+.jfx-button:pressed {
+    -fx-background-color: #B71C1C; /* Darker background when pressed */
+    -fx-text-fill: #FFFFFF; /* White text when pressed */
+}
+/* Exit button specific styling */
+.exit-button {
+    -fx-pref-width: 100.0; /* Making sure it's smaller */
+    -fx-pref-height: 20.0;
+    -fx-background-color: #d3d3d3;
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+

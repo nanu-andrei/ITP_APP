@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.itp_app.main.LoginEmployeeController">
+   <children>
+      <Label layoutX="69.0" layoutY="29.0" prefHeight="18.0" prefWidth="161.0" text="ITP Application">
+         <font>
+            <Font name="Bauhaus 93" size="23.0" />
+         </font>
+      </Label>
+      <Button fx:id="exitButton" layoutX="231.0" layoutY="353.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="26.0" prefWidth="54.0"  text="Exit" />
+      <Label layoutX="40.0" layoutY="101.0" text="Name:" />
+      <Label layoutX="40.0" layoutY="133.0" text="Wallet" />
+      <TextField fx:id="nameField" layoutX="101.0" layoutY="101.0" />
+      <TextField fx:id="walletField" layoutX="101.0" layoutY="133.0" />
+      <JFXButton fx:id="log2" layoutX="190.0" layoutY="166.0" mnemonicParsing="false" onAction="#onEmployeeLogin" text="login" />
+      <Label fx:id="testLabel" layoutX="36.0" layoutY="252.0" prefHeight="20.0" prefWidth="230.0" />
+      <Button fx:id="backButton" layoutX="31.0" layoutY="354.0" mnemonicParsing="false" text="Back" onAction="#onPressBack" />
+   </children>
+</AnchorPane>

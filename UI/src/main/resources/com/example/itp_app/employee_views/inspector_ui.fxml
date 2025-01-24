@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../employee_views/employee_ui.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.itp_app.Employee.InspectorController">
+    <left>
+        <AnchorPane id="panel" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="200.0">
+            <children>
+                <VBox alignment="CENTER" layoutX="7.0" layoutY="117.0" prefWidth="186.0" spacing="10">
+                    <children>
+                        <JFXButton fx:id="completeContract" onAction="#onCompleteContractAction" prefHeight="46.0" prefWidth="186.0" styleClass="jfx-button" text="Complete Contract" />
+                        <JFXButton fx:id="viewRequests" onAction="#onViewAssignedRequestsAction" prefHeight="46.0" prefWidth="186.0" styleClass="jfx-button" text="View" />
+                    </children>
+                </VBox>
+                <Button id="exit-button" fx:id="exit" layoutX="7" layoutY="357" mnemonicParsing="false" onAction="#exitAction" prefHeight="20.0" prefWidth="70.0" styleClass="exit-button" text="Exit" />
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane fx:id="inspector" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="400.0" />
+    </center>
+</BorderPane>

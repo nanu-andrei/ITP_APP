@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.itp_app.Employee.ViewAdminController">
+    <TableView fx:id="requestTable" prefHeight="400.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+            <TableColumn fx:id="nameColumn" prefWidth="44" text="B" />
+            <TableColumn fx:id="vinColumn" prefWidth="44" text="V" />
+            <TableColumn fx:id="modelColumn" prefWidth="44" text="M" />
+            <TableColumn fx:id="yearColumn" prefWidth="44" text="Y" />
+            <TableColumn fx:id="colorColumn" prefWidth="44" text="C" />
+            <TableColumn fx:id="fuelTypeColumn" prefWidth="44" text="FT" />
+            <TableColumn fx:id="plateNumberColumn" prefWidth="44" text="PN" />
+            <TableColumn fx:id="manufacturerColumn" prefWidth="44" text="Man" />
+            <TableColumn fx:id="firmNameColumn" prefWidth="44" text="F" />
+            <TableColumn fx:id="statusColumn" prefWidth="44" text="S" />
+        </columns>
+    </TableView>
+
+</AnchorPane>
